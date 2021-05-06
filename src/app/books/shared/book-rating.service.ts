@@ -14,14 +14,14 @@ export class BookRatingService {
   rateUp(book: Book): Book {
     return {
       ...book,
-      rating: Math.min(this.minRating, book.rating - 1)
+      rating: Math.min(book.rating + 1, this.maxRating)
     };
   }
 
   rateDown(book: Book): Book {
     return {
       ...book,
-      rating: Math.max(this.maxRating, book.rating - 1)
+      rating: Math.max(book.rating - 1, this.minRating)
     };
   }
 }
