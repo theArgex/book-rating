@@ -22,11 +22,11 @@ export class BookComponent {
     return (this.emptyStars = 5 - booksRating);
   }
 
-  doRateUp(): void {
-    this.rateUp.emit(this.book);
+  doRateUp(book: Book): void {
+    this.rateUp.emit(book);
   }
 
-  doRateDown(): void {
-    this.rateDown.emit(this.book);
+  doRateDown(book: Book): void {
+    this.rateDown.emit(book);
   }
 }
