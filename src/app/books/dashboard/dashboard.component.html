@@ -1,5 +1,5 @@
 
 <div class="container">
-  <br-book *ngFor="let book of books" [book]="book"></br-book>
+  <br-book *ngFor="let book of books" [book]="book" (rateDown)="doRateDown()" (rateUp)="doRateUp()"></br-book>
 </div>
 
