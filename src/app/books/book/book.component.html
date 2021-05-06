@@ -3,13 +3,20 @@
     <img class="img-thumbnail float-right" src="//covers.openlibrary.org/b/isbn/{{ book.isbn }}-M.jpg">
     <div class="card-title">
       <h2>
-        {{ book.title }}
-        <span *ngFor="let item of [].constructor(book.rating);" class="star">★</span>
-        <span *ngFor="let item of [].constructor(getEmptyStars(book.rating)); " class="star">☆</span>
+        {{ book.title }} {{ book.rating }} {{ selectedValue }}
+        <div class="rating-container">
+
+          <ul class="rating-list" *ngFor="let star of stars; let i= index" style="display: inline-block">
+            <li (click)="countStar(star)" id="{{'starId'+i}}" [ngClass]="{'selected': (star <= selectedValue)}" (mouseover)="addClass(star)" (mouseout)="removeClass(star)"> ★
+            </li>
+          </ul>
+        </div>
+
+        <!-- <span *ngFor="let item of [].constructor(getEmptyStars(book.rating)); " class="star star-empty">☆</span> -->
       </h2>
     </div>
     <p>{{ book.description }}</p>
-    <button class="btn btn-primary mr-2" (click)="doRateUp()">Rate up</button>
     <button class="btn btn-primary mr-2" (click)="doRateDown()">Rate down</button>
+    <button class="btn btn-primary mr-2" (click)="doRateUp()">Rate up</button>
   </div>
 </div>

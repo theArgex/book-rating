@@ -1,4 +1,45 @@
-.star {
-  font-size: 0.7em;
-  margin: 2px;
+.rating-container {
+  float: right;
+  .rating-list {
+    li {
+      font-size: 0.7em;
+      float: right;
+      color: #aaaaaa;
+    }
+    li.selected {
+      color: #fff;
+    }
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+}
+
+@mixin star-hover {
+    color: #fff;
+    ~ {
+      li {
+        color: #fff;
+      }
+    }
+}
+
+#starId1:hover {
+  @include star-hover;
+}
+
+#starId2:hover {
+  @include star-hover;
+}
+
+#starId3:hover {
+  @include star-hover;
+}
+
+#starId4:hover {
+  @include star-hover;
+}
+
+#starId5:hover {
+  @include star-hover;
 }

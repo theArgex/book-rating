@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Book } from './book';
+import { Book, BookWithRating } from './book';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,13 @@ export class BookRatingService {
   readonly maxRating: number = 5;
 
   constructor() { }
+
+  setRating(newBookRating: BookWithRating): Book {
+    return {
+      ...newBookRating.book,
+      rating: newBookRating.rating
+    };
+  }
 
   rateUp(book: Book): Book {
     return {

@@ -1,4 +1,4 @@
-import { Book } from './../shared/book';
+import { Book, BookWithRating } from './../shared/book';
 import { Component, OnInit } from '@angular/core';
 import { BookRatingService } from '../shared/book-rating.service';
 
@@ -48,6 +48,11 @@ export class DashboardComponent implements OnInit {
 
   doRateDown(book: Book): void {
     const ratedBook = this.br.rateDown(book);
+    this.updateAndSort(ratedBook);
+  }
+
+  setRating(newBookRating: BookWithRating): void {
+    const ratedBook = this.br.setRating(newBookRating);
     this.updateAndSort(ratedBook);
   }
 
