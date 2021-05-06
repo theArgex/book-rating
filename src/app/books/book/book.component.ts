@@ -40,24 +40,19 @@ export class BookComponent implements OnInit {
     this.newRating.emit(newBookRating);
   }
 
-  addClass(star): void {
-    console.log('star', star);
-    console.log('selectedvalue', this.selectedValue);
-    let ab = '';
+  addClass(star: number): void {
+    let starId = '';
     for (let i = 0; i < star; i++) {
-      console.log('star i', star);
-      ab = 'starId' + i;
-      document.getElementById(ab).classList.add('selected');
+      starId = 'starId' + i;
+      document.getElementById(starId).classList.add('selected');
     }
   }
 
-  removeClass(star): void {
-    console.log('removestar', star);
-    let ab = '';
+  removeClass(star: number): void {
+    let starId = '';
     for (let i = star - 1; i >= this.selectedValue; i--) {
-      console.log('star i', star);
-      ab = 'starId' + i;
-      document.getElementById(ab).classList.remove('selected');
+      starId = 'starId' + i;
+      document.getElementById(starId).classList.remove('selected');
     }
   }
 
