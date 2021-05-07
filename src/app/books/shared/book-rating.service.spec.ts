@@ -1,7 +1,7 @@
 import { Book } from './book';
 import { BookRatingService } from './book-rating.service';
 
-fdescribe('BookRatingService', () => {
+describe('BookRatingService', () => {
 
   let service: BookRatingService;
   let book: Book;
@@ -29,7 +29,9 @@ fdescribe('BookRatingService', () => {
   it('should not be allowed to have a rating greater than 5', () => {
     book.rating = 5;
     const ratedBook = service.rateUp(book);
+    const isDisabled = service.checkDisableRateUp(ratedBook.rating);
     expect(ratedBook.rating).toBe(5);
+    expect(isDisabled).toBe(true);
   });
 
   it('should not be allowed to have a rating smaller than 1', () => {
