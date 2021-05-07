@@ -18,6 +18,12 @@ export class BookComponent implements OnInit {
 
   @Input() book: Book;
 
+  @Input()
+  disableRateDown = false;
+
+  @Input()
+  disableRateUp = false;
+
   emptyStars: number;
 
   stars: number[] = [1, 2, 3, 4, 5];

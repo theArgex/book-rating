@@ -31,4 +31,12 @@ export class BookRatingService {
       rating: Math.max(book.rating - 1, this.minRating)
     };
   }
+
+  checkDisableRateUp(rating: number): boolean {
+    return rating >= this.maxRating;
+  }
+
+  checkDisableRateDown(rating: number): boolean {
+    return rating <= this.minRating;
+  }
 }

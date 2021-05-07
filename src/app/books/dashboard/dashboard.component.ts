@@ -36,6 +36,9 @@ export class DashboardComponent implements OnInit {
   }
   ];
 
+  maxRating = 5;
+  minRating = 1;
+
   constructor(private br: BookRatingService) { }
 
   ngOnInit(): void {
@@ -60,6 +63,14 @@ export class DashboardComponent implements OnInit {
     this.books = this.books
       .map(b => b.isbn === ratedBook.isbn ? ratedBook : b)
       .sort((a, b) => b.rating - a.rating);
+  }
+
+  checkDisableRateUp(rating: number): boolean {
+    return this.br.checkDisableRateUp(rating);
+  }
+
+  checkDisableRateDown(rating: number): boolean {
+    return this.br.checkDisableRateDown(rating);
   }
 
 }
