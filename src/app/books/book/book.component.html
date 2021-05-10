@@ -18,6 +18,6 @@
     <button [disabled]="disableRateDown" class="btn btn-primary mr-2" (click)="doRateDown()">-1</button>
     <button [disabled]="disableRateUp" class="btn btn-primary mr-2" (click)="doRateUp()">+1</button>
 
-    <a [routerLink]="['/books/', book.isbn]">Details</a>
+    <a [routerLink]="['/books/', book.isbn]" class="btn btn-secondary mr-2">Details</a>
   </div>
 </div>
