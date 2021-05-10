@@ -1,6 +1,8 @@
 import { Book, BookWithRating } from './../shared/book';
 import { Component, OnInit } from '@angular/core';
 import { BookRatingService } from '../shared/book-rating.service';
+import { BookStoreService } from '../shared/book-store.service';
+
 
 @Component({
   selector: 'br-dashboard',
@@ -10,7 +12,7 @@ import { BookRatingService } from '../shared/book-rating.service';
 export class DashboardComponent implements OnInit {
 
   books: Book[] = [
-  {
+  /* {
     isbn: '3864906466',
     title: 'Angular',
     description: 'Buch über Angular',
@@ -33,13 +35,15 @@ export class DashboardComponent implements OnInit {
     title: 'The Hitchhikers Guide to the Galaxy',
     description: '42',
     rating: 5
-  }
+  } */
   ];
 
   maxRating = 5;
   minRating = 1;
 
-  constructor(private br: BookRatingService) { }
+  constructor(private br: BookRatingService, bs: BookStoreService) {
+     bs.getAllBooks().subscribe(books => this.books = books);
+   }
 
   ngOnInit(): void {
   }
@@ -71,6 +75,12 @@ export class DashboardComponent implements OnInit {
 
   checkDisableRateDown(rating: number): boolean {
     return this.br.checkDisableRateDown(rating);
+  }
+
+  addBook(newBook: Book): void {
+    this.books = [...this.books, newBook];
+    this.updateAndSort(newBook);
+    console.log('created Book: ', newBook);
   }
 
 }

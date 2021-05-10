@@ -2,5 +2,6 @@
 <div class="container">
   <br-book *ngFor="let book of books" [book]="book" [disableRateUp]="checkDisableRateUp(book.rating)" [disableRateDown]="checkDisableRateDown(book.rating)" (rateDown)="doRateDown($event)" (rateUp)="doRateUp($event)" (newRating)="setRating($event)"></br-book>
   <p> {{ books.length }} / {{ books.length }} </p>
+  <br-create-book   (create)="addBook($event)"></br-create-book>
 </div>
 

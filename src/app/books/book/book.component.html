@@ -5,7 +5,6 @@
       <h2>
         {{ book.title }}
         <div class="rating-container">
-
           <ul class="rating-list" *ngFor="let star of stars; let i= index" style="display: inline-block">
             <li myStyle="test" (click)="countStar(star)" id="{{'starId'+i}}" [ngClass]="{'selected': (star <= selectedValue)}" (mouseover)="addClass(star)" (mouseout)="removeClass(star)"> ★
             </li>
@@ -18,5 +17,7 @@
     <p>{{ book.description }}</p>
     <button [disabled]="disableRateDown" class="btn btn-primary mr-2" (click)="doRateDown()">-1</button>
     <button [disabled]="disableRateUp" class="btn btn-primary mr-2" (click)="doRateUp()">+1</button>
+
+    <a [routerLink]="['/books/', book.isbn]">Details</a>
   </div>
 </div>
